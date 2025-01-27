@@ -12,7 +12,8 @@ public class MobileContact extends AbstractEntity{
 
     }
 
-    public MobileContact(String firstname, String lastname, String phoneNumber) {
+    public MobileContact(Long id, String firstname, String lastname, String phoneNumber) {
+        setId(id);
         this.firstname = firstname;
         this.lastname = lastname;
         this.phoneNumber = phoneNumber;
@@ -47,11 +48,15 @@ public class MobileContact extends AbstractEntity{
         return "Firstname: " + firstname + ", Lastname: " + lastname + ", Phone number: " + phoneNumber;
     }
 
+
+
     @Override
     public boolean equals(Object other) {
         if (this == other) return true;
         if (!(other instanceof MobileContact that)) return false;
-        return Objects.equals(getFirstname(), that.getFirstname()) && Objects.equals(getLastname(), that.getLastname()) && Objects.equals(getPhoneNumber(), that.getPhoneNumber());
+        return Objects.equals(getFirstname(), that.getFirstname())
+                && Objects.equals(getLastname(), that.getLastname())
+                && Objects.equals(getPhoneNumber(), that.getPhoneNumber());
     }
 
     @Override
